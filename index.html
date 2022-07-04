@@ -1,13 +1,358 @@
+
 <html>
-  
-  <head>
     
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3412789839863659"
-     crossorigin="anonymous"></script>
-    
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <title>Reaction time</title>
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3412789839863659"
+        crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+
+            * { padding: 0; margin: 0; }
+
+            .container  {
+                display: flex;
+			    background: #1B3409;
+			    padding: 1%;
+                flex-direction: column;
+                
+            }
+
+            .tableCanvasDiv {
+                display: flex;
+                padding-top: 1%;
+                flex-direction: row;
+                justify-content: center;
+                padding-bottom: 1%;
+            }
+
+            @media screen and (max-width: 600px) {
+                .tableCanvasDiv {
+                    flex-direction: column;
+                }
+                .canvasDiv  {
+                    order: 1;
+                }
+                .tableDiv   {
+                    order: 2;
+                }
+            }
+
+            
+
+            #myCanvas { 
+                background: rgb(255, 255, 255); 
+                display: block; 
+
+                
+            }
+
+            .ad1Div    {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center
+            }
+
+            /*.ad1    {
+                border: 4px solid red;
+                width: 100px;
+                height: 100px;  
+
+            }*/
+
+            .ad2Div    {
+                width: 100%;
+                height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center
+            }
+
+            /*.ad2    {
+                border: 4px solid red;
+                width: 1300px;
+                height: 75px;  
+
+            }*/
+
+            body {
+                background-color: #1B3409;
+            }
+
+
+            thead,
+            tfoot {
+                background-color: rgb(0, 0, 0);
+                color: #fff;
+            }
+
+            td  {
+                color: white;
+            }
+
+            .table   {
+                border: 4px solid rgb(255, 255, 255);
+                border-collapse: collapse;
+                background-color: #EBF7E3;
+                width: 100%;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .tableDiv   {
+                width: 100%;
+                padding-right: 1%;
+            }
+
+            td, tr  {
+                 color:black;
+                 border: 4px solid rgb(255, 255, 255);
+            }
+
+            th  {
+                background-color: #375F1B;
+                color: white;
+            }
+
+            #askName   {
+                align-self: center;
+            }
+
+            .title  {
+                color:#1B3409;
+                text-align: center;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                font-size: 400%;
+                width: 100%;
+            }
+
+            .titleDiv  {
+                background: #9BD770;
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .canvasDiv  {
+                display: block;
+                padding-right: 1%;
+            }
+
+            input {
+                align-self: center;
+				height: 100px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-weight: 500;
+				font-size: 300%;
+                width: 480px; 
+			}
+        </style>
+    </head>
+    <body>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CV7B58PPCG"></script>
+
+        <script>
+        window.dataLayer = window.dataLayer  || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CV7B58PPCG');
+        </script>
+        
+
+        <section class="container">
+            <div class="titleDiv">
+                <h1 class="title">Reaction Time</h1>
+            </div>
+
+            <div class="tableCanvasDiv">
+
+                <div class="tableDiv">
+
+                    <table border="1px" class="table">
+                        <thead>
+                            <tr>
+                                <th colspan="4">Leaderboard</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="onerank" ></td>
+                                <td id="onename" ></td>
+                                <td id="onescore" ></td>
+                                <td id="onedate" ></td>
+                            </tr>
+                            <tr>
+                                <td id="tworank" ></td>
+                                <td id="twoname" ></td>
+                                <td id="twoscore" ></td>
+                                <td id="twodate" ></td>
+                            </tr>
+                            <tr>
+                                <td id="threerank" ></td>
+                                <td id="threename" ></td>
+                                <td id="threescore" ></td>
+                                <td id="threedate" ></td>
+                            </tr>
+                            <tr>
+                                <td id="fourrank" ></td>
+                                <td id="fourname" ></td>
+                                <td id="fourscore" ></td>
+                                <td id="fourdate" ></td>
+                            </tr>
+                            <tr>
+                                <td id="fiverank" ></td>
+                                <td id="fivename" ></td>
+                                <td id="fivescore" ></td>
+                                <td id="fivedate" ></td>
+                            </tr>
+
+                            <tr>
+                                <td id="sixrank" ></td>
+                                <td id="sixname" ></td>
+                                <td id="sixscore" ></td>
+                                <td id="sixdate" ></td>
+                            </tr>
+                            <tr>
+                                <td id="sevenrank" ></td>
+                                <td id="sevenname" ></td>
+                                <td id="sevenscore" ></td>
+                                <td id="sevendate" ></td>
+                            </tr>
+                            <tr>
+                                <td id="eightrank" ></td>
+                                <td id="eightname" ></td>
+                                <td id="eightscore" ></td>
+                                <td id="eightdate" ></td>
+                            </tr>
+                            <tr>
+                                <td id="ninerank" ></td>
+                                <td id="ninename" ></td>
+                                <td id="ninescore" ></td>
+                                <td id="ninedate" ></td>
+                            </tr>
+                            <tr>
+                                <td id="tenrank" ></td>
+                                <td id="tenname" ></td>
+                                <td id="tenscore" ></td>
+                                <td id="tendate" ></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="canvasDiv">
+
+                    <canvas id="myCanvas" width="480" height="320"></canvas>
+
+                    <input id="askName" type="text" placeholder=" Your Name">
+
+
+                </div>
+
+
+                <div class="ad1Div">
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3412789839863659"
+                    crossorigin="anonymous"></script>
+                    <!-- Vertical Ad -->
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-3412789839863659"
+                        data-ad-slot="6411652415"
+                        data-ad-format="auto"
+                        data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
   
-  <body>
-  </body>
+                </div>
+            </div>
+
+            <div class="ad2Div">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3412789839863659"
+                    crossorigin="anonymous"></script>
+                <!-- Horizontal Ad -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-3412789839863659"
+                    data-ad-slot="2855550783"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
   
+            </div>
+        
+        </section>
+        <script src="game.js"></script>
+        <script src="scores.js"></script>
+       
+
+    <script>
+
+        async function drawLeaderboard()  {
+
+            //get scores from the server
+            const leaderboard = await getScores();
+            
+            document.getElementById("onerank").innerHTML = 1;
+            document.getElementById("onename").innerHTML = leaderboard[0].name;
+            document.getElementById("onescore").innerHTML = leaderboard[0].reactiontime;
+            document.getElementById("onedate").innerHTML = leaderboard[0].date;
+
+            document.getElementById("tworank").innerHTML = 2;
+            document.getElementById("twoname").innerHTML = leaderboard[1].name;
+            document.getElementById("twoscore").innerHTML = leaderboard[1].reactiontime;
+            document.getElementById("twodate").innerHTML = leaderboard[1].date;
+
+            document.getElementById("threerank").innerHTML = 3;
+            document.getElementById("threename").innerHTML = leaderboard[2].name;
+            document.getElementById("threescore").innerHTML = leaderboard[2].reactiontime;
+            document.getElementById("threedate").innerHTML = leaderboard[2].date;
+
+            document.getElementById("fourrank").innerHTML = 4;
+            document.getElementById("fourname").innerHTML = leaderboard[3].name;
+            document.getElementById("fourscore").innerHTML = leaderboard[3].reactiontime;
+            document.getElementById("fourdate").innerHTML = leaderboard[3].date;
+
+            document.getElementById("fiverank").innerHTML = 5;
+            document.getElementById("fivename").innerHTML = leaderboard[4].name;
+            document.getElementById("fivescore").innerHTML = leaderboard[4].reactiontime;
+            document.getElementById("fivedate").innerHTML = leaderboard[4].date;
+
+            document.getElementById("sixrank").innerHTML = 6;
+            document.getElementById("sixname").innerHTML = leaderboard[5].name;
+            document.getElementById("sixscore").innerHTML = leaderboard[5].reactiontime;
+            document.getElementById("sixdate").innerHTML = leaderboard[5].date;
+
+            document.getElementById("sevenrank").innerHTML = 7;
+            document.getElementById("sevenname").innerHTML = leaderboard[6].name;
+            document.getElementById("sevenscore").innerHTML = leaderboard[6].reactiontime;
+            document.getElementById("sevendate").innerHTML = leaderboard[6].date;
+
+            document.getElementById("eightrank").innerHTML = 8;
+            document.getElementById("eightname").innerHTML = leaderboard[7].name;
+            document.getElementById("eightscore").innerHTML = leaderboard[7].reactiontime;
+            document.getElementById("eightdate").innerHTML = leaderboard[7].date;
+
+            document.getElementById("ninerank").innerHTML = 9;
+            document.getElementById("ninename").innerHTML = leaderboard[8].name;
+            document.getElementById("ninescore").innerHTML = leaderboard[8].reactiontime;
+            document.getElementById("ninedate").innerHTML = leaderboard[8].date;
+
+            document.getElementById("tenrank").innerHTML = 10;
+            document.getElementById("tenname").innerHTML = leaderboard[9].name;
+            document.getElementById("tenscore").innerHTML = leaderboard[9].reactiontime;
+            document.getElementById("tendate").innerHTML = leaderboard[9].date;     
+        };
+
+        drawLeaderboard();
+        </script>
+    </body>
 </html>
